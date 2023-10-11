@@ -1,7 +1,5 @@
 from bs4 import BeautifulSoup
-import html5lib
 import time
-import math
 import requests
 import json
 
