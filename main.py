@@ -5,7 +5,11 @@ import json
 
 
 FINAL_TAG = ["_price_desc","_price_asc",""]
-data = open(r"Data.json", "r")
+try:
+    data = open(r"Data.json", "r")
+except:
+    open("Data.json", "x")
+    data = open(r"Data.json", "r")
 
 def GetValues(allposts):
     f = open(r"Data.json", "r+")
@@ -27,10 +31,14 @@ def GetValues(allposts):
         postIVA = round(float(Priceformat[3])/1.15-0.01, 2)
         postIVA = postIVA
 
+        try:
+            state = postTitle.split("(")[1].split(")")[0]
+        except:
+            state = postTitle
         images = {
                 "index": i+1,
                 "name": postTitle.split("(")[0],
-                "state": postTitle.split("(")[1].split(")")[0],
+                "state": state,
                 "quantity" : postQuantity,
                 "price": float(Priceformat[3]),
                 "taxprice": postIVA
