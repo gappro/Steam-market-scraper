@@ -91,3 +91,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def testmain(url, Selected_Pagenumb, pageorder):
+    totalPosts = stepThroughPages([], 1, int(Selected_Pagenumb), int(pageorder), url)
+
+    # Reality check
+    print(str(len(totalPosts))+" items displayed")
+    GetValues(totalPosts)
+    print("Successful run")
+    return "Successful run"
